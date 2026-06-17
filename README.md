@@ -2,12 +2,12 @@
 
 A React application that fetches products from a public REST API and displays them in a responsive grid with search and category filtering.
 
-## 🔗 Live Data Source
+##  Live Data Source
 
 Products are fetched from the Fake Store API:  
 https://fakestoreapi.com/products
 
-## ✨ Features
+##  Features
 
 - Fetch products from REST API
 - Responsive product grid layout
@@ -16,7 +16,7 @@ https://fakestoreapi.com/products
 - Modular component-based architecture
 
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - React
 - JavaScript (ES6+)
@@ -24,7 +24,7 @@ https://fakestoreapi.com/products
 - REST API
 - CSS
 
-## 🚀 Getting Started
+##  Getting Started
 
 Clone the repository and run:
 
