@@ -5,8 +5,11 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Category(models.Model):
     cat_name = models.CharField(max_length=250)
+    slug = models.SlugField(default="", blank=True, null=False, db_index=True)
 
-
+    
+    class Meta:
+            verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.cat_name
@@ -28,6 +31,8 @@ class Product(models.Model):
        decimal_places=1,
        validators=[MinValueValidator(0), MaxValueValidator(5)]
     )
+    slug = models.SlugField(default="", blank=True, null=False, db_index=True)
+
 
     def __str__(self):
         return self.title 
