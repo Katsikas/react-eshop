@@ -39,10 +39,10 @@ class Product(models.Model):
        decimal_places=1,
        validators=[MinValueValidator(0), MaxValueValidator(5)]
     )
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, related_name='tag')
     slug = models.SlugField(default="", blank=True, null=False, db_index=True)
 
 
 
     def __str__(self):
-        return self.title 
+        return f'{self.title} {self.tags}' 
