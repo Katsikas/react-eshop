@@ -12,19 +12,17 @@ const Filters = ({
             <button
               className={selectedCategory === category ? "active" : ""}
               onClick={() => onCategorySelect(category)}
-              >
+            >
               {category}
             </button>
           </li>
         ))}
       </ul>
-        {selectedCategory && (
-          
-            <button className="clear-btn" onClick={onClearFilters}>
-              Clear
-            </button>
-          
-        )}
+      {selectedCategory && (
+        <button className="clear-btn" onClick={onClearFilters}>
+          Clear
+        </button>
+      )}
     </div>
   );
 };

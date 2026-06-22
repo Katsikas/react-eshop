@@ -23,6 +23,10 @@ class Tag(models.Model):
 
 
 
+def get_default_cat():
+     cat = Category.objects.get(pk=1)
+     return cat
+
 
 class Product(models.Model):
     title = models.CharField(max_length=250)
@@ -32,14 +36,14 @@ class Product(models.Model):
         validators=[MinValueValidator(0.01)]
     )
     description = models.CharField(max_length=500)
-    category = models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, default=get_default_cat)
     image = models.CharField(max_length=500, null=True, blank=True)
     rating = models.DecimalField(
        max_digits=2,
        decimal_places=1,
        validators=[MinValueValidator(0), MaxValueValidator(5)]
     )
-    tags = models.ManyToManyField(Tag, related_name='tag')
+    tags = models.ManyToManyField(Tag, blank=True, related_name='tag')
     slug = models.SlugField(default="", blank=True, null=False, db_index=True)
 
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchProducts } from "../services/productsApi";
+import { fetchCategories, fetchProducts } from "../services/productsApi";
 import ProductGrid from "../components/ProductGrid";
 import NavBar from "../components/NavBar";
 import Filters from "../components/Filters";
@@ -12,12 +12,15 @@ const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
-    async function getProducts() {
+    async function getProductsAndCategories() {
       setLoading(true);
 
       try {
-        const data = await fetchProducts();
-        setProducts(data);
+        const productsData = await fetchProducts();
+
+        const categoriesData = await fetchCategories();
+
+        setProducts(productsData);
       } catch (err) {
         setError(err.message || "Something went wrong");
       } finally {
@@ -25,8 +28,10 @@ const ProductsPage = () => {
       }
     }
 
-    getProducts();
+    getProductsAndCategories();
   }, []);
+
+  // console.log(products);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -36,20 +41,20 @@ const ProductsPage = () => {
     setSelectedCategory(null);
   };
 
-  const filteredProducts = selectedCategory
-    ? products.filter((p) => p.category === selectedCategory)
-    : products;
+  // const filteredProducts = selectedCategory
+  //   ? products.filter((p) => p.category === selectedCategory)
+  //   : products;
 
-  const categories = [...new Set(products.map((p) => p.category))];
+  // const categories = [...new Set(products.map((p) => p.category))];
 
   return (
     <>
-      <NavBar
+      {/* <NavBar
         categories={categories}
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
         onClearFilters={handleClearFilters}
-      />
+      /> */}
       <div className="main">
         {loading && <Loader />}
         {error && (
@@ -64,15 +69,15 @@ const ProductsPage = () => {
             </button>
           </div>
         )}
-        {filteredProducts && (
+        {/* {filteredProducts && (
           <Filters
             categories={categories}
             selectedCategory={selectedCategory}
             onCategorySelect={handleCategorySelect}
             onClearFilters={handleClearFilters}
           />
-        )}
-        {!loading && !error && <ProductGrid products={filteredProducts} />}
+        )} */}
+        {/* {!loading && !error && <ProductGrid products={filteredProducts} />} */}
       </div>
     </>
   );
