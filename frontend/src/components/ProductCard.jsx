@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddToFavorites from "./AddToFavorites";
 import { useCart } from "../context/CardContext";
+import { currencyFormatter } from "../services/formatting";
 
 const ProductCard = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
@@ -34,7 +35,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         <div className="lower-part">
-          <p className="price">{product.price}€</p>
+          <p className="price">{currencyFormatter.format(product.price)}</p>
           <div className="quantity-control">
             <button
               type="button"
