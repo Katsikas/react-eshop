@@ -21,7 +21,7 @@ venv\Scripts\activate
 This will activate the venv. 
 Then while on the venv run the following:
 ```
-pip install -f requirements.txt
+pip install -r requirements.txt
 ```
 When installation is over the following command will serve the backend:
 ```
