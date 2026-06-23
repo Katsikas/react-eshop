@@ -224,16 +224,15 @@ nav img:hover {
 }
 
 .product-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
   gap: 1em;
-  justify-content: center;
+
   color: #213547;
   margin: 10vh 5vh;
 }
 
 .product-card {
-  flex: 1 1 220px;
   max-width: 300px;
   border-radius: 22px;
   padding: 0.7em;
