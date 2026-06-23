@@ -207,12 +207,9 @@ nav img:hover {
     transform 150ms var(--cube),
     color 150ms ease;
 }
-.filters-con button:hover {
-  transform: scale(1.02);
-}
 
 .filters-con button.active {
-  transform: scale(1.02);
+  transform: scale(1.01);
   background-color: var(--action-orange);
   color: var(--dark-blue);
   font-weight: 600;
@@ -221,7 +218,9 @@ nav img:hover {
 .filters-con .clear-btn {
   font-size: 0.9em;
   border: none;
+  text-decoration: underline;
   background-color: transparent;
+  transition: 100ms;
 }
 
 .product-grid {
@@ -353,7 +352,7 @@ nav img:hover {
 }
 
 .cart-page.empty {
-  justify-content: center;
+  margin: 10vh 5vh;
 }
 
 .cart-page.empty .empty-cart {
