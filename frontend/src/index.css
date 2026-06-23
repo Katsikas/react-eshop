@@ -180,20 +180,21 @@ nav img:hover {
 }
 
 .filters-con {
-  width: 100%;
   margin-top: 10vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 2em;
 }
 
 .filters-con ul {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   list-style-type: none;
   gap: 1em;
 }
+
 .filters-con button {
   text-transform: capitalize;
   font-size: 1em;
@@ -225,7 +226,8 @@ nav img:hover {
 
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
+  grid-template-columns: repeat(auto-fit, 350px);
+  justify-content: center;
   gap: 1em;
 
   color: #213547;
