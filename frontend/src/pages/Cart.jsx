@@ -1,6 +1,7 @@
 import CartSummary from "../components/CartSummary";
+import NavBar from "../components/NavBar";
 import { useCart } from "../context/CardContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
 const Cart = () => {
@@ -8,24 +9,7 @@ const Cart = () => {
   const { state } = useCart();
   const { cartItems } = state;
 
-  if (cartItems.length === 0) {
-    return (
-      <div className="cart-page empty">
-        <div className="breadcrumbs">
-          <h4 className="breadcrumbs-link" onClick={() => navigate("/")}>
-            Home &gt;
-          </h4>
-          <h4>Cart</h4>
-        </div>
-        <div className="empty-cart">
-          <h2>Your Cart is empty</h2>
-          <button className="action-btn" onClick={() => navigate("/")}>
-            Go to Home
-          </button>
-        </div>
-      </div>
-    );
-  }
+  if (cartItems.length === 0) return <Navigate to="/empty-cart" />;
 
   return (
     <div className="cart-page">
