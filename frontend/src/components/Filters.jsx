@@ -17,12 +17,14 @@ const Filters = ({
             </button>
           </li>
         ))}
+        {selectedCategory && (
+          <li>
+            <button className="clear-btn" onClick={onClearFilters}>
+              Clear
+            </button>
+          </li>
+        )}
       </ul>
-      {selectedCategory && (
-        <button className="clear-btn" onClick={onClearFilters}>
-          Clear
-        </button>
-      )}
     </div>
   );
 };

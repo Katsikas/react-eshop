@@ -58,27 +58,30 @@ const NavBar = ({
                 <img src="/shopping.svg" height={22} width={22} alt="cart" />
               </Link>
             </div>
-
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowNav((v) => !v);
-              }}
-            >
-              <img src="/burger.svg" alt="search" />
-            </button>
+            {categories && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowNav((v) => !v);
+                }}
+              >
+                <img src="/burger.svg" alt="search" />
+              </button>
+            )}
           </div>
         </nav>
       </header>
-      <Sidenav
-        ref={navRef}
-        showNav={showNav}
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onSelect={onCategorySelect}
-        onClear={onClearFilters}
-      />
+      {categories && (
+        <Sidenav
+          ref={navRef}
+          showNav={showNav}
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelect={onCategorySelect}
+          onClear={onClearFilters}
+        />
+      )}
     </div>
   );
 };
