@@ -1,11 +1,8 @@
-import { useState } from "react";
 import AddToFavorites from "./UI/Addtofavorites";
 import { useCart } from "../context/CardContext";
 import { currencyFormatter } from "../services/formatting";
 
 const ProductCard = ({ product }) => {
-  const [quantity, setQuantity] = useState(1);
-
   const { dispatch } = useCart();
 
   const handleAddToCart = () => {
@@ -36,25 +33,6 @@ const ProductCard = ({ product }) => {
 
         <div className="lower-part">
           <p className="price">{currencyFormatter.format(product.price)}</p>
-          <div className="quantity-control">
-            <button
-              type="button"
-              className="qty-btn"
-              aria-label="Decrease quantity"
-              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-            >
-              -
-            </button>
-            <p className="qty-value">{quantity}</p>
-            <button
-              type="button"
-              className="qty-btn"
-              aria-label="Increase quantity"
-              onClick={() => setQuantity((q) => q + 1)}
-            >
-              +
-            </button>
-          </div>
           <div className="add-to-cart">
             <button className="action-btn" onClick={handleAddToCart}>
               Add to cart
