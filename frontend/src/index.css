@@ -23,6 +23,7 @@
 }
 #root {
   width: 100%;
+  transition: 250ms linear;
 }
 body {
   margin: 0;
@@ -37,6 +38,10 @@ body {
   justify-content: center;
   min-height: 100svh;
   min-width: 100%;
+}
+
+#root:has(.sidenav.active) {
+  margin-left: 180px;
 }
 
 h1 {
