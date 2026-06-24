@@ -13,10 +13,7 @@ const Header = ({
   const navRef = useRef();
   const { state } = useCart();
 
-  const totalItems = state.cartItems.reduce(
-    (sum, item) => sum + item.quantity,
-    0,
-  );
+  const ItemsCount = state.cartItems.length;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -53,11 +50,10 @@ const Header = ({
 
           <div className="navbar-actions">
             <div
-              className={`cart-icon ${totalItems ? "has-items" : ""}`}
-              data-items={totalItems}
+              className={`cart-icon ${ItemsCount ? "has-items" : ""}`}
+              data-items={ItemsCount}
             >
               <Link to={"/cart"}>
-                {/* {totalItems > 0 && <span>{totalItems}</span>} */}
                 <img src="/shopping.svg" height={22} width={22} alt="cart" />
               </Link>
             </div>
