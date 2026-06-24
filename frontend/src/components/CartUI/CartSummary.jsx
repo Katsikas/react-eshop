@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useCart } from "../context/CardContext";
-import { currencyFormatter } from "../services/formatting";
+import { useCart } from "../../context/CardContext";
+import { currencyFormatter } from "../../services/formatting";
 
 export default function CartSummary() {
   const [agreed, setAgreed] = useState(false);

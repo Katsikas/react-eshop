@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddToFavorites from "./AddToFavorites";
+import AddToFavorites from "./UI/Addtofavorites";
 import { useCart } from "../context/CardContext";
 import { currencyFormatter } from "../services/formatting";
 

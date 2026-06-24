@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../services/productsApi";
 import ProductGrid from "../components/ProductGrid";
-import NavBar from "../components/NavBar";
 import Filters from "../components/Filters";
-import Loader from "../components/Loader";
+import Loader from "../components/UI/Loader";
+import Header from "../components/UI/Header";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -49,7 +49,7 @@ const ProductsPage = () => {
 
   return (
     <>
-      <NavBar
+      <Header
         categories={set_of_categories}
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}

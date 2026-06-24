@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Sidenav from "./Sidenav";
-import { useCart } from "../context/CardContext";
+import { useCart } from "../../context/CardContext";
 import { Link } from "react-router-dom";
 
-const NavBar = ({
+const Header = ({
   categories,
   selectedCategory,
   onCategorySelect,
@@ -86,4 +86,4 @@ const NavBar = ({
   );
 };
 
-export default NavBar;
+export default Header;

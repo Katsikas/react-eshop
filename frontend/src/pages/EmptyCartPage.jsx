@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import Header from "../components/UI/Header";
 
 export default function EmptyCartPage() {
   const navigate = useNavigate();
 
   return (
     <>
-      <NavBar />
+      <Header />
       <div className="cart-page empty">
         <div className="breadcrumbs">
           <h4 className="breadcrumbs-link" onClick={() => navigate("/")}>

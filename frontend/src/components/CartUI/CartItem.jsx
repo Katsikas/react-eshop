@@ -1,5 +1,5 @@
-import { useCart } from "../context/CardContext";
-import { currencyFormatter } from "../services/formatting";
+import { useCart } from "../../context/CardContext";
+import { currencyFormatter } from "../../services/formatting";
 
 export default function CartItem({ item }) {
   const { dispatch } = useCart();
