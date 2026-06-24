@@ -76,12 +76,12 @@ nav {
   margin: auto;
   padding: 0 3em;
 }
-nav img {
+nav .img-transition {
   transition: 300ms ease-in-out;
   cursor: pointer;
 }
 
-nav img:hover {
+nav .img-transition:hover {
   transform: scale(1.05);
 }
 
@@ -102,14 +102,14 @@ nav img:hover {
 .navbar-actions .cart-icon {
   position: relative;
 }
-.navbar-actions .cart-icon span {
-  color: #fff;
-  background-color: #172b4d;
-  padding: 0.2em;
-  border-radius: 50%;
+
+.navbar-actions .cart-icon.has-items::after {
+  content: attr(data-items);
   position: absolute;
-  top: -70%;
+  top: -18px;
   right: 0;
+
+  font-weight: 600;
 }
 
 .navbar-actions button {
