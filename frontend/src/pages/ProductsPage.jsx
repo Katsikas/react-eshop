@@ -38,7 +38,7 @@ const ProductsPage = () => {
   };
 
   const filteredProducts = selectedCategory
-    ? products.filter((p) => p.categories === selectedCategory)
+    ? products.filter((p) => p.categories[0].cat_name === selectedCategory)
     : products;
 
   const all_categories_obj = products.flatMap((p) => p.categories);
