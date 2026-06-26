@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
 const Sidenav = forwardRef(
-  ({ showNav, categories, selectedCategory, onSelect, onClear }, ref) => {
+  ({ showNav, categories, selectedCategory, onSelect }, ref) => {
     return (
       <aside ref={ref} className={showNav ? "sidenav active" : "sidenav"}>
         <ul>
@@ -19,7 +19,7 @@ const Sidenav = forwardRef(
           ))}
         </ul>
         {selectedCategory && (
-          <button className="clear-btn" onClick={onClear}>
+          <button className="clear-btn" onClick={() => onSelect(null)}>
             Clear filters
           </button>
         )}

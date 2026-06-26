@@ -14,10 +14,6 @@ const ProductsPage = () => {
     setSelectedCategory(category);
   };
 
-  const handleClearFilters = () => {
-    setSelectedCategory(null);
-  };
-
   const filteredProducts = selectedCategory
     ? products.filter((p) => p.categories[0].cat_name === selectedCategory)
     : products;
@@ -34,14 +30,12 @@ const ProductsPage = () => {
         categories={set_of_categories}
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
-        onClearFilters={handleClearFilters}
       />
       {filteredProducts && (
         <Filters
           categories={set_of_categories}
           selectedCategory={selectedCategory}
           onCategorySelect={handleCategorySelect}
-          onClearFilters={handleClearFilters}
         />
       )}
       <div className="main">

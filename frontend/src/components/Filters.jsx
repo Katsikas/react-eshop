@@ -1,9 +1,4 @@
-const Filters = ({
-  categories,
-  selectedCategory,
-  onCategorySelect,
-  onClearFilters,
-}) => {
+const Filters = ({ categories, selectedCategory, onCategorySelect }) => {
   return (
     <div className="filters-con">
       <ul>
@@ -19,7 +14,10 @@ const Filters = ({
         ))}
         {selectedCategory && (
           <li>
-            <button className="clear-btn" onClick={onClearFilters}>
+            <button
+              className="clear-btn"
+              onClick={() => onCategorySelect(null)}
+            >
               Clear
             </button>
           </li>
