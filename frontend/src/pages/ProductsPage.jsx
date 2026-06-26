@@ -1,33 +1,14 @@
-import { useEffect, useState } from "react";
-import { fetchProducts } from "../services/productsApi";
+import { useContext, useState } from "react";
+
 import ProductGrid from "../components/ProductGrid";
 import Filters from "../components/Filters";
 import Loader from "../components/UI/Loader";
 import Header from "../components/UI/Header";
+import ProductsContext from "../context/ProductsContext";
 
 const ProductsPage = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { products, loading, error } = useContext(ProductsContext);
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  useEffect(() => {
-    async function getProductsAndCategories() {
-      setLoading(true);
-
-      try {
-        const productsData = await fetchProducts();
-
-        setProducts(productsData);
-      } catch (err) {
-        setError(err.message || "Something went wrong");
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getProductsAndCategories();
-  }, []);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
