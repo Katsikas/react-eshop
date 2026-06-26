@@ -94,7 +94,15 @@ nav .img-transition:hover {
   list-style-type: none;
   display: flex;
   flex-direction: row;
-  gap: 0.7em;
+  gap: 1em;
+}
+
+.navbar-links a {
+  color: var(--action-orange);
+  transition: 150ms ease;
+}
+.navbar-links a:hover {
+  color: hsl(29, 100%, 46%);
 }
 
 .navbar-actions {
@@ -358,6 +366,7 @@ nav .img-transition:hover {
   padding: 1em 2em;
   gap: 2em;
   min-height: 100svh;
+  margin-top: 10vh;
 }
 
 .cart-page.empty {
@@ -526,6 +535,30 @@ nav .img-transition:hover {
   & label {
     cursor: pointer;
   }
+}
+
+.categories-page {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  padding: 1em 2em;
+  gap: 2em;
+  min-height: 100svh;
+  margin-top: 10vh;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+}
+
+.category {
+  padding: 1em 1.5em;
+  border: 2px solid red;
+  border-radius: 12px;
+  text-transform: capitalize;
 }
 
 /* MISC */
