@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Tag
+from .models import Category, Product, Tag, Order, OrderItem
 
 
 
@@ -25,3 +25,5 @@ class TagAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Tag,TagAdmin)
+admin.site.register(Order)
+admin.site.register(OrderItem)
