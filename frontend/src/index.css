@@ -98,9 +98,14 @@ nav .img-transition:hover {
 }
 
 .navbar-links a {
-  color: var(--action-orange);
+  color: #fff;
   transition: 150ms ease;
 }
+
+.navbar-links .active {
+  color: var(--action-orange);
+}
+
 .navbar-links a:hover {
   color: hsl(29, 100%, 46%);
 }
