@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Sidenav from "./Sidenav";
 import { useCart } from "../../context/CardContext";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = ({
   categories,
@@ -44,10 +44,10 @@ const Header = ({
           </Link>
           <ul className="navbar-links">
             <li>
-              <Link to="/"> Home</Link>
+              <NavLink to="/"> Home</NavLink>
             </li>
             <li>
-              <Link to="/categories">Categories</Link>
+              <NavLink to="/categories">Categories</NavLink>
             </li>
           </ul>
 
