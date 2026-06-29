@@ -8,19 +8,27 @@ export default function CategoriesPage() {
 
   const all_categories_obj = products.flatMap((p) => p.categories);
 
-  const set_of_categories = [
-    ...new Set(all_categories_obj.map((c) => c.cat_name)),
-  ];
+  const categories = [...new Set(all_categories_obj.map((c) => c.cat_name))];
+
+  const slugs = [...new Set(all_categories_obj.map(({ slug }) => slug))];
+
+  const category_with_slug = categories.map((cat, index) => {
+    return { name: cat, slug: slugs[index] };
+  });
 
   return (
     <>
       <Header />
       <div className="categories-page">
         <div className="categories-grid">
-          {set_of_categories.map((cat) => (
-            <article className="category" key={cat}>
-              <h3>{cat}</h3>
-              <p>See all products for {cat}</p>
+          {category_with_slug.map(({ name, slug }) => (
+            <article className="category" key={slug}>
+              <div className="cat-title">
+                <h3>{name}</h3>
+              </div>
+              <div className="cat-details">
+                <Link to={slug}>See all products for {name}</Link>
+              </div>
             </article>
           ))}
         </div>
