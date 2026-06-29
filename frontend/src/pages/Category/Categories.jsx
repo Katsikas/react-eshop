@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import Header from "../components/UI/Header";
-import ProductsContext from "../context/ProductsContext";
+import Header from "../../components/UI/Header";
+import ProductsContext from "../../context/ProductsContext";
 import { Link } from "react-router-dom";
 
 export default function CategoriesPage() {
