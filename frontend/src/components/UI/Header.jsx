@@ -48,7 +48,7 @@ const Header = ({
   }
 
   return (
-    <div>
+    <>
       <header>
         <nav>
           <Link to="/">
@@ -104,7 +104,7 @@ const Header = ({
           onClear={onClearFilters}
         />
       )}
-    </div>
+    </>
   );
 };
 
