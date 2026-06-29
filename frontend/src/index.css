@@ -22,6 +22,8 @@
   --dark-blue: hsl(216, 43%, 7%);
   --cover-blue: hsl(218, 45%, 10%);
   --action-orange: hsl(29, 100%, 56%);
+  --active-orange: hsl(29, 100%, 30%);
+  --action-orange-6: hsl(29, 100%, 66%);
   --cube: cubic-bezier(0.42, 0, 0.44, 1.68);
 }
 #root {
@@ -57,6 +59,7 @@ h3 {
 
 a {
   text-decoration: none;
+  color: var(--action-orange-6);
 }
 
 @media (prefers-color-scheme: light) {
@@ -639,7 +642,6 @@ nav .img-transition:hover {
 
 .categories-page {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
   padding: 1em 2em;
@@ -658,6 +660,37 @@ nav .img-transition:hover {
   padding: 1em 1.5em;
   border: 2px solid red;
   border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.single-cat-page {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+  gap: 2em;
+  min-height: 100svh;
+  margin-top: 10vh;
+}
+
+.single-cat-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: var(--cover-blue);
+  padding: 1em;
+  border-radius: 12px;
+}
+
+.single-cat-hero .cat-title {
+  text-transform: capitalize;
+}
+
+.single-cat-hero .cat-list {
+  list-style-type: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1em;
+  color: var(--action-orange-6);
   text-transform: capitalize;
 }
 
