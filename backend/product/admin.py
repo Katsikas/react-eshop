@@ -20,10 +20,18 @@ class CategoryAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ['caption']
 
-    
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['order_id', 'status', 'created_at', 'user']
+
+
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['order', 'product', 'quantity']
+
+
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Tag,TagAdmin)
-admin.site.register(Order)
-admin.site.register(OrderItem)
+admin.site.register(Order,OrderAdmin)
+admin.site.register(OrderItem, OrderItemAdmin)
