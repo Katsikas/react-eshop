@@ -52,14 +52,14 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class CartItemSerializer(serializers.ModelSerializer):
-    product_name = serializers.CharField(source='product.title', read_only=True)
-    product_price = serializers.DecimalField(max_digits=10, decimal_places=2, source='product.price', read_only=True)
-    product_image = serializers.CharField(source='product.image', read_only=True)
+    title = serializers.CharField(source='product.title', read_only=True)
+    price = serializers.DecimalField(max_digits=10, decimal_places=2, source='product.price', read_only=True)
+    image = serializers.CharField(source='product.image', read_only=True)
     product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
 
     class Meta:
         model = CartItem
-        fields = ('product', 'product_name', 'product_price', 'product_image', 'quantity', 'item_subtotal')
+        fields = ('product', 'title', 'price', 'image', 'quantity', 'item_subtotal')
 
     def create(self, validated_data):
         product = validated_data['product']
