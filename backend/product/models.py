@@ -80,3 +80,18 @@ class OrderItem(models.Model):
     
     def __str__(self):
         return f'{self.quantity} x {self.product.title} in Order {self.order.order_id}'
+
+
+
+class CartItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    
+
+    @property
+    def item_subtotal(self):
+        return self.product.price * self.quantity
+
+
+    def __str__(self):
+        return f'{self.quantity} x {self.product.title}'
