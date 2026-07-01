@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Category, Tag, Order, OrderItem
+from .models import Product, Category, Tag, Order, OrderItem, CartItem
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -48,5 +48,33 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('order_id','created_at','user','status', 'items','total_price')
+
+
+
+class CartItemSerializer(serializers.ModelSerializer):
+    product_name = serializers.CharField(source='product.title', read_only=True)
+    product_price = serializers.DecimalField(max_digits=10, decimal_places=2, source='product.price', read_only=True)
+    product_image = serializers.CharField(source='product.image', read_only=True)
+    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
+
+    class Meta:
+        model = CartItem
+        fields = ('product', 'product_name', 'product_price', 'product_image', 'quantity', 'item_subtotal')
+
+    def create(self, validated_data):
+        product = validated_data['product']
+        quantity = validated_data['quantity']
+        
+
+        cart_item, created = CartItem.objects.get_or_create(
+            product = product,
+            defaults={'quantity': quantity}
+        )
+
+        if not created:
+            cart_item.quantity += quantity
+            cart_item.save()
+
+        return cart_item
 
 
