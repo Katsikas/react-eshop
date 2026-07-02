@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import ProductsPage from "./pages/ProductsPage";
 import Cart from "./pages/Cart/Cart";
-import EmptyCartPage from "./pages/Cart/EmptyCartPage";
 import NotFound from "./pages/NotFound";
 import Categories from "./pages/Category/Categories";
 import Category from "./pages/Category/Category";
@@ -16,7 +15,6 @@ const App = () => {
         <Route path="/categories" element={<Categories />} />
         <Route path="/categories/:category" element={<Category />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/empty-cart" element={<EmptyCartPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </ProductsContextProvider>
