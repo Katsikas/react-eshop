@@ -1,11 +1,25 @@
 import { useCart } from "../../context/CardContext";
 import { currencyFormatter } from "../../services/formatting";
-import { patchCartItem } from "../../services/productsApi";
+import { deleteCartItem, patchCartItem } from "../../services/productsApi";
 
 export default function CartItem({ item }) {
   const { dispatch } = useCart();
 
   async function handleQtyAction(method) {
+    if (item.quantity === 1 && method === "DECREMENT") {
+      try {
+        const response = await deleteCartItem(item);
+
+        if (response.status === 204) {
+          dispatch({ type: "REMOVE_FROM_CART", payload: item.product });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+
+      return;
+    }
+
     try {
       const response = await patchCartItem(item, method);
 
