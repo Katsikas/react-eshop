@@ -6,7 +6,10 @@ export default function CartItem({ item }) {
   const { dispatch } = useCart();
 
   async function handleQtyAction(method) {
-    if (item.quantity === 1 && method === "DECREMENT") {
+    if (
+      (item.quantity === 1 && method === "DECREMENT") ||
+      method === "DELETE"
+    ) {
       try {
         const response = await deleteCartItem(item);
 
@@ -39,12 +42,9 @@ export default function CartItem({ item }) {
         </div>
         <div className="item-content">
           <div className="delete-cart">
-            <img
-              src="/delete.svg"
-              onClick={() =>
-                dispatch({ type: "REMOVE_FROM_CART", payload: item.id })
-              }
-            />
+            <button onClick={() => handleQtyAction("DELETE")}>
+              <img src="/delete.svg" />
+            </button>
           </div>
 
           <div className="item-title">
