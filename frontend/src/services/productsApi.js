@@ -62,3 +62,16 @@ export async function patchCartItem(item, method) {
 
   return response;
 }
+
+export async function deleteCartItem(item) {
+  const response = await fetch(`${API_URL}/cart/${item.id}/`, {
+    method: "DELETE",
+    headers: HEADERS,
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch products");
+  }
+
+  return response;
+}
