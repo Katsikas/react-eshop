@@ -14,14 +14,14 @@ export function CartReducer(state, action) {
       const item = action.payload;
 
       const existingItem = state.cartItems.find(
-        (cartItem) => cartItem.id === item.product,
+        (cartItem) => cartItem.product === item.id,
       );
 
       if (existingItem) {
         return {
           ...state,
           cartItems: state.cartItems.map((cartItem) =>
-            cartItem.id === item.product
+            cartItem.product === item.id
               ? { ...cartItem, quantity: cartItem.quantity + 1 }
               : cartItem,
           ),
@@ -62,6 +62,8 @@ export function CartReducer(state, action) {
 
     case "REMOVE_FROM_CART": {
       const id = action.payload;
+
+      console.log(id);
 
       return {
         ...state,
