@@ -1,8 +1,35 @@
 import { useCart } from "../../context/CardContext";
 import { currencyFormatter } from "../../services/formatting";
+import { deleteCartItem, patchCartItem } from "../../services/productsApi";
 
 export default function CartItem({ item }) {
   const { dispatch } = useCart();
+
+  async function handleQtyAction(method) {
+    if (item.quantity === 1 && method === "DECREMENT") {
+      try {
+        const response = await deleteCartItem(item);
+
+        if (response.status === 204) {
+          dispatch({ type: "REMOVE_FROM_CART", payload: item.product });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+
+      return;
+    }
+
+    try {
+      const response = await patchCartItem(item, method);
+
+      if (response.status === 200) {
+        dispatch({ type: method, payload: item.product });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className="item">
@@ -27,19 +54,13 @@ export default function CartItem({ item }) {
           <div className="item-price">
             <h2>{currencyFormatter.format(item.price)}</h2>
             <div className="cart-quantity">
-              <img
-                src="/remove.svg"
-                onClick={() =>
-                  dispatch({ type: "DECREMENT", payload: item.id })
-                }
-              />
+              <button onClick={() => handleQtyAction("DECREMENT")}>
+                <img src="/remove.svg" />
+              </button>
               <span>{item.quantity}</span>
-              <img
-                src="/add.svg"
-                onClick={() =>
-                  dispatch({ type: "INCREMENT", payload: item.id })
-                }
-              />
+              <button onClick={() => handleQtyAction("INCREMENT")}>
+                <img src="/add.svg" />
+              </button>
             </div>
           </div>
         </div>

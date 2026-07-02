@@ -2,13 +2,14 @@ import CartSummary from "../../components/CartUI/CartSummary";
 import { useCart } from "../../context/CardContext";
 import { useNavigate, Navigate } from "react-router-dom";
 import CartItem from "../../components/CartUI/CartItem";
+import EmptyCart from "./EmptyCart";
 
 const Cart = () => {
   const navigate = useNavigate();
   const { state } = useCart();
   const { cartItems } = state;
 
-  if (cartItems.length === 0) return <Navigate to="/empty-cart" />;
+  if (cartItems.length === 0) return <EmptyCart />;
 
   return (
     <div className="cart-page">
@@ -24,7 +25,7 @@ const Cart = () => {
       <div className="cart-content">
         <div className="cart-items">
           {cartItems.map((item) => (
-            <CartItem key={item.id} item={item} />
+            <CartItem key={item.product} item={item} />
           ))}
         </div>
         <div className="cart-summary">

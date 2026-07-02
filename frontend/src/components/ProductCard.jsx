@@ -1,15 +1,9 @@
 import AddToFavorites from "./UI/Addtofavorites";
-import { useCart } from "../context/CardContext";
 import { currencyFormatter } from "../services/formatting";
 import { Link } from "react-router-dom";
+import AddToCart from "./CartUI/AddToCart";
 
 const ProductCard = ({ product, isCategoryPage }) => {
-  const { dispatch } = useCart();
-
-  const handleAddToCart = () => {
-    dispatch({ type: "ADD_TO_CART", payload: product });
-  };
-
   return (
     <div className="product-card">
       <div className="product-image">
@@ -40,9 +34,7 @@ const ProductCard = ({ product, isCategoryPage }) => {
         <div className="lower-part">
           <p className="price">{currencyFormatter.format(product.price)}</p>
           <div className="add-to-cart">
-            <button className="action-btn" onClick={handleAddToCart}>
-              Add to cart
-            </button>
+            <AddToCart product={product} />
           </div>
         </div>
       </div>

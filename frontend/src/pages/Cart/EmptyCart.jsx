@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/UI/Header";
 
-export default function EmptyCartPage() {
+export default function EmptyCart() {
   const navigate = useNavigate();
 
   return (
