@@ -6,10 +6,7 @@ demonstrating efficient state management and performance-optimized rendering in 
 
 ## Getting Started
 
- **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Katsikas/react-product-list-filters.git](https://github.com/Katsikas/react-product-list-filters.git)
-```
+ **Clone the repository**
 
 ## Backend
 
