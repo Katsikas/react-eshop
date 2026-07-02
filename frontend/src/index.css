@@ -62,12 +62,12 @@ a {
   color: var(--action-orange-6);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #e9e5d8;
-    background-color: #ffffff;
-  }
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
+
 header {
   position: fixed;
   display: flex;
