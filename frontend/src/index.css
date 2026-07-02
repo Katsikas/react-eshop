@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--action-orange) var(--cover-blue);
+  scrollbar-width: thin;
+}
 * {
   margin: 0;
   padding: 0;
@@ -147,6 +152,10 @@ nav .img-transition:hover {
   border: none;
   border-radius: 6px;
   width: 350px;
+  max-height: 50svh;
+
+  scrollbar-color: var(--action-orange) var(--cover-blue);
+  scrollbar-width: thin;
 }
 
 #cart-popover .cart-quantity {
