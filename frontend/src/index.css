@@ -148,11 +148,13 @@ nav .img-transition:hover {
   inset: auto;
   position-area: bottom;
   padding-top: 1em;
-  background-color: var(--cover-blue);
+  background-color: #000;
   border: none;
   border-radius: 6px;
   width: 350px;
   max-height: 50svh;
+
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.17);
 
   scrollbar-color: var(--action-orange) var(--cover-blue);
   scrollbar-width: thin;
