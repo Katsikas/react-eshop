@@ -3,11 +3,14 @@ import { useCart } from "../../context/CardContext";
 import { useNavigate, Navigate } from "react-router-dom";
 import CartItem from "../../components/CartUI/CartItem";
 import EmptyCart from "./EmptyCart";
+import Loader from "../../components/UI/Loader";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { state } = useCart();
+  const { state, loading } = useCart();
   const { cartItems } = state;
+
+  if (loading) return <Loader />;
 
   if (cartItems.length === 0) return <EmptyCart />;
 
