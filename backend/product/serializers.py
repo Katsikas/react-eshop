@@ -59,7 +59,7 @@ class CartItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CartItem
-        fields = ('product', 'title', 'price', 'image', 'quantity', 'item_subtotal')
+        fields = ('id','product', 'title', 'price', 'image', 'quantity', 'item_subtotal')
 
     def create(self, validated_data):
         product = validated_data['product']
@@ -76,5 +76,7 @@ class CartItemSerializer(serializers.ModelSerializer):
             cart_item.save()
 
         return cart_item
+    
+
 
 
