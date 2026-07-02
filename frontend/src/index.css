@@ -71,6 +71,7 @@ button {
   border: none;
   outline: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 header {
@@ -572,10 +573,6 @@ nav .img-transition:hover {
   display: flex;
   align-items: center;
   gap: 1em;
-}
-
-.cart-items .cart-quantity img {
-  cursor: pointer;
 }
 
 .cart-summary {
