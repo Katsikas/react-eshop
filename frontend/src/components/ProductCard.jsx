@@ -7,7 +7,7 @@ const ProductCard = ({ product, isCategoryPage }) => {
   return (
     <div className="product-card">
       <div className="product-image">
-        <AddToFavorites />
+        <AddToFavorites product={product} />
         <img
           src={product.image}
           height={145}
