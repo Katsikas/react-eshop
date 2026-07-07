@@ -40,6 +40,7 @@ class Product(models.Model):
     tags = models.ManyToManyField(Tag, blank=True, related_name='tags')
     stock = models.PositiveIntegerField(default=1)
     slug = models.SlugField(default="", blank=True, null=False, db_index=True)
+    is_favorite = models.BooleanField(default=False)
 
 
     @property
