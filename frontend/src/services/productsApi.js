@@ -75,3 +75,19 @@ export async function deleteCartItem(item) {
 
   return response;
 }
+
+export async function patchIsFavoriteProduct(item, is_favorite) {
+  const response = await fetch(`${API_URL}/products/${item.id}/`, {
+    method: "PATCH",
+    headers: HEADERS,
+    body: JSON.stringify({
+      is_favorite: is_favorite,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch products");
+  }
+
+  return response;
+}
