@@ -3,6 +3,7 @@ import { fetchProducts } from "../services/productsApi";
 
 const ProductsContext = createContext({
   products: [],
+  setProducts: () => {},
   loading: false,
   error: null,
 });
@@ -32,6 +33,7 @@ export function ProductsContextProvider({ children }) {
 
   const ctxValue = {
     products,
+    setProducts,
     loading,
     error,
   };
