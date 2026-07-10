@@ -30,6 +30,8 @@ html {
   --active-orange: hsl(29, 100%, 30%);
   --action-orange-6: hsl(29, 100%, 66%);
   --cube: cubic-bezier(0.42, 0, 0.44, 1.68);
+  --hot-tag-bg: hsl(29, 100%, 80%);
+  --new-tag-bg: hsl(214, 80%, 30%);
 }
 #root {
   width: 100%;
@@ -371,7 +373,35 @@ nav .img-transition:hover {
   flex-direction: column;
   justify-content: space-between;
   gap: 1em;
+  position: relative;
 }
+
+.product-card .tag-con {
+  position: absolute;
+  top: 2svh;
+  left: 1svh;
+
+  z-index: 2;
+  padding: 0.1em 0.7em;
+
+  font-weight: 600;
+  font-size: 1.54em;
+  text-transform: uppercase;
+
+  border-radius: 6px;
+  transform: rotate(-20deg);
+}
+
+.product-card .tag-con.hot-tag {
+  color: var(--active-orange);
+  background-color: var(--hot-tag-bg);
+}
+
+.product-card .tag-con.new-tag {
+  color: var(--color-text-neutral-8);
+  background-color: var(--new-tag-bg);
+}
+
 .product-image {
   position: relative;
   border-radius: 18px;
