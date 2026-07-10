@@ -6,6 +6,11 @@ import AddToCart from "./CartUI/AddToCart";
 const ProductCard = ({ product, isCategoryPage }) => {
   return (
     <div className="product-card">
+      {product.all_tags.length > 0 && (
+        <div className={`tag-con ${product.all_tags[0].caption}-tag`}>
+          {product.all_tags[0].caption}
+        </div>
+      )}
       <div className="product-image">
         <AddToFavorites product={product} />
         <img
