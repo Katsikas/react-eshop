@@ -53,7 +53,7 @@ const ProductsPage = () => {
           </div>
         )}
 
-        {!loading && !error && <ProductGrid products={filteredProducts} />}
+        {!loading && <ProductGrid products={filteredProducts} />}
       </div>
     </>
   );
