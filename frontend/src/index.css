@@ -759,6 +759,10 @@ nav .img-transition:hover {
   text-transform: capitalize;
 }
 
+.favorites-hero {
+  padding: 1em;
+}
+
 /* MISC */
 
 .error-con {
@@ -802,6 +806,7 @@ nav .img-transition:hover {
   align-items: center;
   padding: 2rem;
   margin-top: 15vh;
+  min-height: 40svh;
 }
 
 .spinner {
