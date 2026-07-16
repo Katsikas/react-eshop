@@ -554,6 +554,7 @@ nav .img-transition:hover {
   flex-direction: column;
   gap: 1em;
   width: 55%;
+  padding-bottom: 2em;
 }
 
 .cart-items .item {
@@ -618,9 +619,12 @@ nav .img-transition:hover {
   display: flex;
   flex-direction: column;
   width: 35%;
+  position: relative;
 }
 
 .summary-inner {
+  position: sticky;
+  top: 10svh;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -866,10 +870,15 @@ nav .img-transition:hover {
     height: fit-content;
   }
 
+  .cart-items .item .item-inner {
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+  }
+
   .cart-items .item-price {
     margin-top: 1em;
     gap: 1em;
-    flex-direction: column;
   }
 
   .cart-items .item-price h2 {
