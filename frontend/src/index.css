@@ -447,7 +447,7 @@ nav .img-transition:hover {
   gap: 0.5em;
 }
 
-.product-details .upper-part h3 {
+.product-card-title {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -849,6 +849,18 @@ nav .img-transition:hover {
 }
 
 @media screen and (max-width: 767px) {
+  nav {
+    padding: 0.7em 2em;
+  }
+
+  .navbar-actions .cart-icon.has-items::after {
+    top: -16px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
   .cart-page {
     padding: 1em;
   }
