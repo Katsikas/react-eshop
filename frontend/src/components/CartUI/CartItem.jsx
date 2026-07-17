@@ -48,7 +48,7 @@ export default function CartItem({ item }) {
           </div>
 
           <div className="item-title">
-            <h3>{item.title}</h3>
+            <h3 className="product-card-title">{item.title}</h3>
           </div>
 
           <div className="item-price">

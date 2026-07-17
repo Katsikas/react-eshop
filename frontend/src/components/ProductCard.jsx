@@ -23,7 +23,7 @@ const ProductCard = ({ product, isCategoryPage }) => {
       </div>
       <div className="product-details">
         <div className="upper-part">
-          <h3>{product.title}</h3>
+          <h3 className="product-card-title">{product.title}</h3>
           {!isCategoryPage &&
             product.categories.map((cat) => (
               <Link
